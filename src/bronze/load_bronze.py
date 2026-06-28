@@ -1,6 +1,7 @@
 from pathlib import Path
 from sqlalchemy import text
 from src.database.connection import get_engine
+from src.logging.logger import logger
 
 DATA_PATH = Path("data/raw")
 
@@ -27,6 +28,7 @@ def load_table(table_name, file_name, columns):
 
     if is_file_loaded(table_name, file_name):
         print(f"⏩ {file_name} already loaded. Skipping...")
+        # logger.warning("⏩ {file_name} File already loaded. Skipping.")
         return
 
     file_path = DATA_PATH / file_name

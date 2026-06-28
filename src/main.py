@@ -4,6 +4,8 @@ from src.database.execute_sql import execute_sql
 from src.bronze.load_bronze import load_users, load_cards, load_transactions
 from src.database.connection import get_engine
 from sqlalchemy import text
+from src.logging.decorators import log_execution
+from src.logging.logger import logger
 
 from src.audit.audit import (
     start_pipeline,
@@ -14,6 +16,7 @@ from src.audit.audit import (
     fail_step
 )
 
+
 def get_row_count(table_name):
     engine = get_engine()
 
@@ -22,7 +25,11 @@ def get_row_count(table_name):
             text(f"SELECT COUNT(*) FROM {table_name}")
         ).scalar()
 
+@log_execution
 def run_sql_step(run_id, step_name, sql_file, table_name):
+
+    logger.info(f"Executing SQL step: {step_name}")
+
     step_id = start_step(run_id, step_name)
 
     try:
@@ -32,11 +39,21 @@ def run_sql_step(run_id, step_name, sql_file, table_name):
 
         finish_step(step_id, rows)
 
+        logger.info(f"Step '{step_name}' completed successfully ({rows} rows)")
+
     except Exception as e:
+
         fail_step(step_id, e)
+
+        logger.exception(f"Step '{step_name}' failed")
+
         raise    
 
+@log_execution
 def run_bronze_step(run_id, step_name, loader, table_name):
+
+    logger.info(f"Executing Bronze step: {step_name}")
+
     step_id = start_step(run_id, step_name)
 
     try:
@@ -46,24 +63,28 @@ def run_bronze_step(run_id, step_name, loader, table_name):
 
         finish_step(step_id, rows)
 
+        logger.info(f"Step '{step_name}' completed successfully ({rows} rows)")
+
     except Exception as e:
+
         fail_step(step_id, e)
+
+        logger.exception(f"Step '{step_name}' failed")  
         raise
 
+@log_execution
 def main():
 
+    create_database()
+    create_schemas()
     
+    run_id = start_pipeline("Banking Analytics Platform")
 
     try:
-
-        create_database()
-        create_schemas()
 
         execute_sql("sql/001_create_schema.sql")
         execute_sql("sql/002_create_audit.sql")
         execute_sql("sql/003_create_bronze_tables.sql")
-
-        run_id = start_pipeline("Banking Analytics Platform")
         
         run_bronze_step(
             run_id,

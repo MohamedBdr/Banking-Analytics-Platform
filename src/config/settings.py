@@ -1,0 +1,4 @@
+LOG_LEVEL = "INFO"
+LOG_FILE = "logs/pipeline.log"
+MAX_LOG_SIZE = 1024 * 1024 # 1 MB
+BACKUP_COUNT = 5
