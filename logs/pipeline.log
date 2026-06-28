@@ -1,0 +1,165 @@
+2026-06-28 11:58:33,460 | INFO | etl_pipeline | Pipeline Started
+2026-06-28 11:58:33,461 | WARNING | etl_pipeline | This is a warning
+2026-06-28 11:58:33,461 | ERROR | etl_pipeline | This is an error
+2026-06-28 11:59:49 | INFO | etl_pipeline | Pipeline Started
+2026-06-28 11:59:49 | WARNING | etl_pipeline | This is a warning
+2026-06-28 11:59:49 | ERROR | etl_pipeline | This is an error
+2026-06-28 13:31:24 | INFO | etl_pipeline | Pipeline Started
+2026-06-28 13:31:24 | WARNING | etl_pipeline | This is a warning
+2026-06-28 13:31:24 | ERROR | etl_pipeline | This is an error
+2026-06-28 13:37:27 | INFO | main.py:main:57 | Pipeline Started
+2026-06-28 13:37:27 | WARNING | main.py:main:58 | This is a warning
+2026-06-28 13:37:27 | ERROR | main.py:main:59 | This is an error
+2026-06-28 13:50:39 | INFO | main.py:main:63 | Pipeline Started
+2026-06-28 13:50:39 | WARNING | main.py:main:64 | This is a warning
+2026-06-28 13:50:39 | ERROR | main.py:main:65 | This is an error
+2026-06-28 13:53:31 | INFO | main.py:main:63 | Pipeline Started
+2026-06-28 13:53:31 | WARNING | main.py:main:64 | This is a warning
+2026-06-28 13:53:31 | ERROR | main.py:main:65 | This is an error
+2026-06-28 17:14:45 | INFO | decorators.py:wrapper:14 | Started test
+2026-06-28 17:14:45 | INFO | decorators.py:wrapper:22 | Finished test in 0.00 seconds
+2026-06-28 17:14:45 | INFO | main.py:main:63 | Pipeline Started
+2026-06-28 17:14:45 | WARNING | main.py:main:64 | This is a warning
+2026-06-28 17:14:45 | ERROR | main.py:main:65 | This is an error
+2026-06-28 17:15:16 | INFO | decorators.py:wrapper:14 | Started test
+2026-06-28 17:47:32 | INFO | decorators.py:wrapper:12 | ##### Started test #####
+2026-06-28 17:47:32 | ERROR | decorators.py:wrapper:24 | ##### Failed test #####
+Traceback (most recent call last):
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\logging\decorators.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\main.py", line 22, in test
+    raise Exception("Database Error")
+Exception: Database Error
+2026-06-28 17:47:32 | INFO | decorators.py:wrapper:30 | ##### test executed in 0.00 seconds #####
+2026-06-28 17:47:48 | INFO | decorators.py:wrapper:12 | ##### Started test #####
+2026-06-28 17:47:48 | INFO | decorators.py:wrapper:19 | ##### Finished test #####
+2026-06-28 17:47:48 | INFO | decorators.py:wrapper:30 | ##### test executed in 0.00 seconds #####
+2026-06-28 17:47:48 | INFO | main.py:main:63 | Pipeline Started
+2026-06-28 17:47:48 | WARNING | main.py:main:64 | This is a warning
+2026-06-28 17:47:48 | ERROR | main.py:main:65 | This is an error
+2026-06-28 18:27:41 | INFO | decorators.py:wrapper:12 | Started main
+2026-06-28 18:27:42 | INFO | decorators.py:wrapper:12 | Started run_bronze_step
+2026-06-28 18:27:42 | INFO | main.py:run_bronze_step:55 | Executing Bronze step: Bronze Users
+2026-06-28 18:27:43 | INFO | main.py:run_bronze_step:66 | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-28 18:27:43 | INFO | decorators.py:wrapper:19 | Finished 'run_bronze_step'
+2026-06-28 18:27:43 | INFO | decorators.py:wrapper:30 | Execution time for run_bronze_step in 0.68 seconds
+2026-06-28 18:27:43 | INFO | decorators.py:wrapper:12 | Started run_bronze_step
+2026-06-28 18:27:43 | INFO | main.py:run_bronze_step:55 | Executing Bronze step: Bronze Cards
+2026-06-28 18:27:43 | INFO | main.py:run_bronze_step:66 | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-28 18:27:43 | INFO | decorators.py:wrapper:19 | Finished 'run_bronze_step'
+2026-06-28 18:27:43 | INFO | decorators.py:wrapper:30 | Execution time for run_bronze_step in 0.40 seconds
+2026-06-28 18:27:43 | INFO | decorators.py:wrapper:12 | Started run_bronze_step
+2026-06-28 18:27:43 | INFO | main.py:run_bronze_step:55 | Executing Bronze step: Bronze Transactions
+2026-06-28 18:27:44 | INFO | main.py:run_bronze_step:66 | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-28 18:27:44 | INFO | decorators.py:wrapper:19 | Finished 'run_bronze_step'
+2026-06-28 18:27:44 | INFO | decorators.py:wrapper:30 | Execution time for run_bronze_step in 0.75 seconds
+2026-06-28 18:27:44 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:44 | INFO | main.py:run_sql_step:31 | Executing SQL step: Silver Users
+2026-06-28 18:27:44 | INFO | main.py:run_sql_step:42 | Step 'Silver Users' completed successfully (2000 rows)
+2026-06-28 18:27:44 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:44 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.30 seconds
+2026-06-28 18:27:44 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:44 | INFO | main.py:run_sql_step:31 | Executing SQL step: Silver Cards
+2026-06-28 18:27:45 | INFO | main.py:run_sql_step:42 | Step 'Silver Cards' completed successfully (6146 rows)
+2026-06-28 18:27:45 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:45 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.49 seconds
+2026-06-28 18:27:45 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:45 | INFO | main.py:run_sql_step:31 | Executing SQL step: Silver Transactions
+2026-06-28 18:27:46 | INFO | main.py:run_sql_step:42 | Step 'Silver Transactions' completed successfully (19963 rows)
+2026-06-28 18:27:46 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:46 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.95 seconds
+2026-06-28 18:27:46 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:46 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Users
+2026-06-28 18:27:46 | INFO | main.py:run_sql_step:42 | Step 'Dim Users' completed successfully (2000 rows)
+2026-06-28 18:27:46 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:46 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.75 seconds
+2026-06-28 18:27:46 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:46 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Cards
+2026-06-28 18:27:47 | INFO | main.py:run_sql_step:42 | Step 'Dim Cards' completed successfully (6146 rows)
+2026-06-28 18:27:47 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:47 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.41 seconds
+2026-06-28 18:27:47 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:47 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Merchants
+2026-06-28 18:27:47 | INFO | main.py:run_sql_step:42 | Step 'Dim Merchants' completed successfully (1106 rows)
+2026-06-28 18:27:47 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:47 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.45 seconds
+2026-06-28 18:27:47 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:47 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Date
+2026-06-28 18:27:48 | INFO | main.py:run_sql_step:42 | Step 'Dim Date' completed successfully (6227 rows)
+2026-06-28 18:27:48 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:48 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.48 seconds
+2026-06-28 18:27:48 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:48 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Time
+2026-06-28 18:27:48 | INFO | main.py:run_sql_step:42 | Step 'Dim Time' completed successfully (1151 rows)
+2026-06-28 18:27:48 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:48 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.38 seconds
+2026-06-28 18:27:48 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:27:48 | INFO | main.py:run_sql_step:31 | Executing SQL step: Fact Transactions
+2026-06-28 18:27:49 | INFO | main.py:run_sql_step:42 | Step 'Fact Transactions' completed successfully (18316 rows)
+2026-06-28 18:27:49 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:27:49 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 1.23 seconds
+2026-06-28 18:27:49 | INFO | decorators.py:wrapper:19 | Finished 'main'
+2026-06-28 18:27:49 | INFO | decorators.py:wrapper:30 | Execution time for main in 8.23 seconds
+2026-06-28 18:34:00 | INFO | decorators.py:wrapper:12 | Started main
+2026-06-28 18:34:01 | INFO | decorators.py:wrapper:12 | Started run_bronze_step
+2026-06-28 18:34:01 | INFO | main.py:run_bronze_step:55 | Executing Bronze step: Bronze Users
+2026-06-28 18:34:01 | INFO | main.py:run_bronze_step:66 | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-28 18:34:01 | INFO | decorators.py:wrapper:19 | Finished 'run_bronze_step'
+2026-06-28 18:34:01 | INFO | decorators.py:wrapper:30 | Execution time for run_bronze_step in 0.48 seconds
+2026-06-28 18:34:01 | INFO | decorators.py:wrapper:12 | Started run_bronze_step
+2026-06-28 18:34:01 | INFO | main.py:run_bronze_step:55 | Executing Bronze step: Bronze Cards
+2026-06-28 18:34:02 | INFO | main.py:run_bronze_step:66 | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-28 18:34:02 | INFO | decorators.py:wrapper:19 | Finished 'run_bronze_step'
+2026-06-28 18:34:02 | INFO | decorators.py:wrapper:30 | Execution time for run_bronze_step in 0.57 seconds
+2026-06-28 18:34:02 | INFO | decorators.py:wrapper:12 | Started run_bronze_step
+2026-06-28 18:34:02 | INFO | main.py:run_bronze_step:55 | Executing Bronze step: Bronze Transactions
+2026-06-28 18:34:03 | INFO | main.py:run_bronze_step:66 | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:19 | Finished 'run_bronze_step'
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:30 | Execution time for run_bronze_step in 0.58 seconds
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:03 | INFO | main.py:run_sql_step:31 | Executing SQL step: Silver Users
+2026-06-28 18:34:03 | INFO | main.py:run_sql_step:42 | Step 'Silver Users' completed successfully (2000 rows)
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.43 seconds
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:03 | INFO | main.py:run_sql_step:31 | Executing SQL step: Silver Cards
+2026-06-28 18:34:03 | INFO | main.py:run_sql_step:42 | Step 'Silver Cards' completed successfully (6146 rows)
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.46 seconds
+2026-06-28 18:34:03 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:03 | INFO | main.py:run_sql_step:31 | Executing SQL step: Silver Transactions
+2026-06-28 18:34:04 | INFO | main.py:run_sql_step:42 | Step 'Silver Transactions' completed successfully (19963 rows)
+2026-06-28 18:34:04 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:04 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.59 seconds
+2026-06-28 18:34:04 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:04 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Users
+2026-06-28 18:34:05 | INFO | main.py:run_sql_step:42 | Step 'Dim Users' completed successfully (2000 rows)
+2026-06-28 18:34:05 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:05 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.55 seconds
+2026-06-28 18:34:05 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:05 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Cards
+2026-06-28 18:34:05 | INFO | main.py:run_sql_step:42 | Step 'Dim Cards' completed successfully (6146 rows)
+2026-06-28 18:34:05 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:05 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.43 seconds
+2026-06-28 18:34:05 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:05 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Merchants
+2026-06-28 18:34:06 | INFO | main.py:run_sql_step:42 | Step 'Dim Merchants' completed successfully (1106 rows)
+2026-06-28 18:34:06 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:06 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.51 seconds
+2026-06-28 18:34:06 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:06 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Date
+2026-06-28 18:34:06 | INFO | main.py:run_sql_step:42 | Step 'Dim Date' completed successfully (6227 rows)
+2026-06-28 18:34:06 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:06 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.59 seconds
+2026-06-28 18:34:06 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:06 | INFO | main.py:run_sql_step:31 | Executing SQL step: Dim Time
+2026-06-28 18:34:07 | INFO | main.py:run_sql_step:42 | Step 'Dim Time' completed successfully (1151 rows)
+2026-06-28 18:34:07 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:07 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 0.51 seconds
+2026-06-28 18:34:07 | INFO | decorators.py:wrapper:12 | Started run_sql_step
+2026-06-28 18:34:07 | INFO | main.py:run_sql_step:31 | Executing SQL step: Fact Transactions
+2026-06-28 18:34:08 | INFO | main.py:run_sql_step:42 | Step 'Fact Transactions' completed successfully (18316 rows)
+2026-06-28 18:34:08 | INFO | decorators.py:wrapper:19 | Finished 'run_sql_step'
+2026-06-28 18:34:08 | INFO | decorators.py:wrapper:30 | Execution time for run_sql_step in 1.41 seconds
+2026-06-28 18:34:08 | INFO | decorators.py:wrapper:19 | Finished 'main'
+2026-06-28 18:34:08 | INFO | decorators.py:wrapper:30 | Execution time for main in 8.13 seconds

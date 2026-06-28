@@ -7,9 +7,5 @@ __pycache__/
 .idea/
 .vscode/
 
-logs/
-
-*.log
-
 data/raw/*.csv
 data/*/*.csv
