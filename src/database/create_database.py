@@ -21,9 +21,9 @@ def create_database():
 
         if not exists:
             conn.execute(text(f"CREATE DATABASE {DB_NAME}"))
-            print(f"✅ {DB_NAME} Database Created successfully!")
+            print(f"{DB_NAME} Database Created successfully!")
         else:
-            print("ℹ️ DB Database Already Exists!")
+            print("DB Database Already Exists!")
 
 
 if __name__ == "__main__":

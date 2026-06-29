@@ -17,7 +17,7 @@ def create_schemas():
 
         for schema in SCHEMAS:
             conn.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema}"))
-            print(f"✅ Schema created/exists: {schema}")
+            print(f"Schema created/exists: {schema}")
 
 
 if __name__ == "__main__":

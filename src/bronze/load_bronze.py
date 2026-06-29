@@ -27,8 +27,8 @@ def load_table(table_name, file_name, columns):
     engine = get_engine()
 
     if is_file_loaded(table_name, file_name):
-        print(f"⏩ {file_name} already loaded. Skipping...")
-        # logger.warning("⏩ {file_name} File already loaded. Skipping.")
+        # print(f"{file_name} already loaded. Skipping...")
+        logger.warning(f"{file_name} File already loaded. Skipping.")
         return
 
     file_path = DATA_PATH / file_name
@@ -62,11 +62,11 @@ def load_table(table_name, file_name, columns):
         )
 
         conn.commit()
-        print(f"✅ Loaded {file_name}")
+        print(f"Loaded {file_name}")
 
     except Exception as e:
         conn.rollback()
-        print(f"❌ Error loading {file_name}")
+        print(f"Error loading {file_name}")
         print(e)
 
     finally:

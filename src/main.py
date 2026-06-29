@@ -6,6 +6,7 @@ from src.database.connection import get_engine
 from sqlalchemy import text
 from src.logging.decorators import log_execution
 from src.logging.logger import logger
+from src.validation.runner import run_validations
 
 from src.audit.audit import (
     start_pipeline,
@@ -74,10 +75,15 @@ def run_bronze_step(run_id, step_name, loader, table_name):
 
 @log_execution
 def main():
-
+    """
+        Main ETL Pipeline.
+    """
     create_database()
     create_schemas()
     
+    # =========================
+    # Start Pipeline Audit
+    # =========================
     run_id = start_pipeline("Banking Analytics Platform")
 
     try:
@@ -86,6 +92,9 @@ def main():
         execute_sql("sql/002_create_audit.sql")
         execute_sql("sql/003_create_bronze_tables.sql")
         
+        # =========================
+        # Bronze Layer
+        # =========================
         run_bronze_step(
             run_id,
             "Bronze Users",
@@ -107,7 +116,17 @@ def main():
             "bronze.transactions"
         )
 
-
+        # =========================
+        # Data Validation
+        # =========================
+        validation_failed  = run_validations()
+        if validation_failed:
+            logger.error("Data validation failed. Pipeline stopped.")
+            return
+        
+        # =========================
+        # Silver Layer
+        # =========================
         run_sql_step(
             run_id,
             "Silver Users",
@@ -129,6 +148,9 @@ def main():
             "silver.transactions"
         )
 
+        # =========================
+        # Gold Layer
+        # =========================
         run_sql_step(
             run_id,
             "Dim Users",
@@ -173,6 +195,9 @@ def main():
 
         execute_sql("sql/004_indexes.sql")
 
+        # =========================
+        # Finish Pipeline Audit
+        # =========================
         finish_pipeline(run_id)
 
     except Exception as e:

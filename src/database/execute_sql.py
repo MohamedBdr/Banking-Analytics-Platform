@@ -1,8 +1,7 @@
 from pathlib import Path
-
 from sqlalchemy import text
-
 from src.database.connection import get_engine
+from src.logging.logger import logger
 from dotenv import load_dotenv
 import os
 
@@ -13,7 +12,7 @@ DB_NAME = os.getenv("POSTGRES_DATABASE_NAME")
 
 def execute_sql(sql_file: str) -> None:
     """
-    Execute a SQL script.
+    Execute a SQL script (SQL files create, insert, update, delete).
     """
 
     sql_path = Path(sql_file)
@@ -29,5 +28,4 @@ def execute_sql(sql_file: str) -> None:
     with engine.begin() as conn:
         conn.execute(text(sql_script))
 
-    print(f"✅ Executed: {sql_path.name}")
-
+    logger.info(f"Executing SQL script: {sql_path.name}")
