@@ -6,7 +6,8 @@ from src.database.connection import get_engine
 from sqlalchemy import text
 from src.logging.decorators import log_execution
 from src.logging.logger import logger
-from src.validation.runner import run_validations
+from src.validation.runner import run_schema_validations, run_data_validations
+from src.file_handling.runner import run_file_validations
 
 from src.audit.audit import (
     start_pipeline,
@@ -80,6 +81,16 @@ def main():
     """
     create_database()
     create_schemas()
+
+    # =========================
+    # File Validation
+    # =========================
+    file_validation_failed = run_file_validations()
+
+    if file_validation_failed:
+        logger.error("File validation failed. Pipeline stopped.")
+        return
+
     
     # =========================
     # Start Pipeline Audit
@@ -117,13 +128,20 @@ def main():
         )
 
         # =========================
-        # Data Validation
+        # Schema, Data Validation
         # =========================
-        validation_failed  = run_validations()
-        if validation_failed:
-            logger.error("Data validation failed. Pipeline stopped.")
+        schema_failed = run_schema_validations()
+
+        if schema_failed:
+            logger.error("Schema validation failed. Pipeline stopped.")
             return
         
+        data_failed = run_data_validations()
+
+        if data_failed:
+            logger.error("Data validation failed. Pipeline stopped.")
+            return
+
         # =========================
         # Silver Layer
         # =========================

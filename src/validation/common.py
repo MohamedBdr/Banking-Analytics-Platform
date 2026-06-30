@@ -1,3 +1,8 @@
+
+#####################################
+# This file for Data Validation Rules
+#####################################
+
 from src.database.execute_query import execute_scalar
 
 

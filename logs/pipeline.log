@@ -683,3 +683,607 @@ TypeError: start_pipeline() missing 1 required positional argument: 'pipeline_na
 2026-06-29 12:30:09 | ERROR | Data validation failed. Pipeline stopped.
 2026-06-29 12:30:09 | INFO | Finished 'main'
 2026-06-29 12:30:09 | INFO | Execution time for main in 1.26 seconds
+2026-06-29 20:11:12 | INFO | Started main
+2026-06-29 20:11:12 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 20:11:12 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 20:11:13 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 20:11:13 | INFO | Started run_bronze_step
+2026-06-29 20:11:13 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 20:11:13 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 20:11:13 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 20:11:13 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:11:13 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 20:11:13 | INFO | Started run_bronze_step
+2026-06-29 20:11:13 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 20:11:13 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 20:11:13 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 20:11:13 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:11:13 | INFO | Execution time for run_bronze_step in 0.32 seconds
+2026-06-29 20:11:13 | INFO | Started run_bronze_step
+2026-06-29 20:11:13 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 20:11:13 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 20:11:13 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:11:13 | INFO | Execution time for run_bronze_step in 0.40 seconds
+2026-06-29 20:11:14 | ERROR | Failed 'main'
+Traceback (most recent call last):
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\logging\decorators.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\main.py", line 122, in main
+    validation_failed  = run_validations()
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\validation\runner.py", line 9, in run_validations
+    results.extend(validate_users_schema())
+                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\validation\users.py", line 48, in validate_users_schema
+    return validate_schema(
+        schema_name="bronze",
+        table_name="users",
+        expected_schema=EXPECTED_SCHEMA
+    )
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\validation\schema.py", line 68, in validate_schema
+    validate_missing_columns(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        expected_schema=expected_schema,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        actual_schema=actual_schema,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        table_name=table_name
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\validation\schema.py", line 16, in validate_missing_columns
+    expected_columns = set(expected_schema.key())
+                           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'key'. Did you mean: 'keys'?
+2026-06-29 20:11:14 | INFO | Execution time for main in 1.42 seconds
+2026-06-29 20:11:52 | INFO | Started main
+2026-06-29 20:11:52 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 20:11:52 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 20:11:52 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 20:11:52 | INFO | Started run_bronze_step
+2026-06-29 20:11:52 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 20:11:53 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 20:11:53 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 20:11:53 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:11:53 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-29 20:11:53 | INFO | Started run_bronze_step
+2026-06-29 20:11:53 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 20:11:53 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 20:11:53 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 20:11:53 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:11:53 | INFO | Execution time for run_bronze_step in 0.30 seconds
+2026-06-29 20:11:53 | INFO | Started run_bronze_step
+2026-06-29 20:11:53 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 20:11:53 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 20:11:53 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:11:53 | INFO | Execution time for run_bronze_step in 0.36 seconds
+2026-06-29 20:11:53 | ERROR | Failed 'main'
+Traceback (most recent call last):
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\logging\decorators.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\main.py", line 122, in main
+    validation_failed  = run_validations()
+  File "C:\Users\Mohamed\Desktop\Banking-Analytics-Platform\src\validation\runner.py", line 17, in run_validations
+    f"Column: {result['column']} | "
+               ~~~~~~^^^^^^^^^^
+KeyError: 'column'
+2026-06-29 20:11:53 | INFO | Execution time for main in 1.39 seconds
+2026-06-29 20:40:10 | INFO | Started main
+2026-06-29 20:40:10 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 20:40:10 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 20:40:10 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 20:40:10 | INFO | Started run_bronze_step
+2026-06-29 20:40:10 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 20:40:10 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 20:40:11 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 20:40:11 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:40:11 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-29 20:40:11 | INFO | Started run_bronze_step
+2026-06-29 20:40:11 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 20:40:11 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 20:40:11 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 20:40:11 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:40:11 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 20:40:11 | INFO | Started run_bronze_step
+2026-06-29 20:40:11 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 20:40:11 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 20:40:11 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:40:11 | INFO | Execution time for run_bronze_step in 0.46 seconds
+2026-06-29 20:40:11 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 20:40:11 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 20:40:11 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-29 20:40:11 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-29 20:40:11 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-29 20:40:11 | INFO | Started run_sql_step
+2026-06-29 20:40:11 | INFO | Executing SQL step: Silver Users
+2026-06-29 20:40:11 | INFO | Executing SQL script: 001_users.sql
+2026-06-29 20:40:12 | INFO | Step 'Silver Users' completed successfully (2000 rows)
+2026-06-29 20:40:12 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:12 | INFO | Execution time for run_sql_step in 0.23 seconds
+2026-06-29 20:40:12 | INFO | Started run_sql_step
+2026-06-29 20:40:12 | INFO | Executing SQL step: Silver Cards
+2026-06-29 20:40:12 | INFO | Executing SQL script: 002_cards.sql
+2026-06-29 20:40:12 | INFO | Step 'Silver Cards' completed successfully (6146 rows)
+2026-06-29 20:40:12 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:12 | INFO | Execution time for run_sql_step in 0.38 seconds
+2026-06-29 20:40:12 | INFO | Started run_sql_step
+2026-06-29 20:40:12 | INFO | Executing SQL step: Silver Transactions
+2026-06-29 20:40:12 | INFO | Executing SQL script: 003_transactions.sql
+2026-06-29 20:40:12 | INFO | Step 'Silver Transactions' completed successfully (19963 rows)
+2026-06-29 20:40:12 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:12 | INFO | Execution time for run_sql_step in 0.33 seconds
+2026-06-29 20:40:12 | INFO | Started run_sql_step
+2026-06-29 20:40:12 | INFO | Executing SQL step: Dim Users
+2026-06-29 20:40:12 | INFO | Executing SQL script: 001_dim_users.sql
+2026-06-29 20:40:13 | INFO | Step 'Dim Users' completed successfully (2000 rows)
+2026-06-29 20:40:13 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:13 | INFO | Execution time for run_sql_step in 0.22 seconds
+2026-06-29 20:40:13 | INFO | Started run_sql_step
+2026-06-29 20:40:13 | INFO | Executing SQL step: Dim Cards
+2026-06-29 20:40:13 | INFO | Executing SQL script: 002_dim_cards.sql
+2026-06-29 20:40:13 | INFO | Step 'Dim Cards' completed successfully (6146 rows)
+2026-06-29 20:40:13 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:13 | INFO | Execution time for run_sql_step in 0.26 seconds
+2026-06-29 20:40:13 | INFO | Started run_sql_step
+2026-06-29 20:40:13 | INFO | Executing SQL step: Dim Merchants
+2026-06-29 20:40:13 | INFO | Executing SQL script: 003_dim_merchants.sql
+2026-06-29 20:40:13 | INFO | Step 'Dim Merchants' completed successfully (1106 rows)
+2026-06-29 20:40:13 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:13 | INFO | Execution time for run_sql_step in 0.23 seconds
+2026-06-29 20:40:13 | INFO | Started run_sql_step
+2026-06-29 20:40:13 | INFO | Executing SQL step: Dim Date
+2026-06-29 20:40:13 | INFO | Executing SQL script: 004_dim_date.sql
+2026-06-29 20:40:13 | INFO | Step 'Dim Date' completed successfully (6227 rows)
+2026-06-29 20:40:13 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:13 | INFO | Execution time for run_sql_step in 0.28 seconds
+2026-06-29 20:40:13 | INFO | Started run_sql_step
+2026-06-29 20:40:13 | INFO | Executing SQL step: Dim Time
+2026-06-29 20:40:13 | INFO | Executing SQL script: 005_dim_time.sql
+2026-06-29 20:40:14 | INFO | Step 'Dim Time' completed successfully (1151 rows)
+2026-06-29 20:40:14 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:14 | INFO | Execution time for run_sql_step in 0.33 seconds
+2026-06-29 20:40:14 | INFO | Started run_sql_step
+2026-06-29 20:40:14 | INFO | Executing SQL step: Fact Transactions
+2026-06-29 20:40:14 | INFO | Executing SQL script: 006_fact_transactions.sql
+2026-06-29 20:40:15 | INFO | Step 'Fact Transactions' completed successfully (18316 rows)
+2026-06-29 20:40:15 | INFO | Finished 'run_sql_step'
+2026-06-29 20:40:15 | INFO | Execution time for run_sql_step in 0.93 seconds
+2026-06-29 20:40:15 | INFO | Executing SQL script: 004_indexes.sql
+2026-06-29 20:40:15 | INFO | Finished 'main'
+2026-06-29 20:40:15 | INFO | Execution time for main in 4.70 seconds
+2026-06-29 20:43:41 | INFO | Started main
+2026-06-29 20:43:42 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 20:43:42 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 20:43:42 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 20:43:42 | INFO | Started run_bronze_step
+2026-06-29 20:43:42 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 20:43:42 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 20:43:42 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 20:43:42 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:43:42 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-29 20:43:42 | INFO | Started run_bronze_step
+2026-06-29 20:43:42 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 20:43:42 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 20:43:42 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 20:43:42 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:43:42 | INFO | Execution time for run_bronze_step in 0.30 seconds
+2026-06-29 20:43:42 | INFO | Started run_bronze_step
+2026-06-29 20:43:42 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 20:43:43 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 20:43:43 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:43:43 | INFO | Execution time for run_bronze_step in 0.35 seconds
+2026-06-29 20:43:43 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 20:43:43 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 20:43:43 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-29 20:43:43 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-29 20:43:43 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-29 20:43:43 | INFO | Finished 'main'
+2026-06-29 20:43:43 | INFO | Execution time for main in 1.70 seconds
+2026-06-29 20:44:09 | INFO | Started main
+2026-06-29 20:44:09 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 20:44:09 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 20:44:09 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 20:44:09 | INFO | Started run_bronze_step
+2026-06-29 20:44:09 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 20:44:09 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 20:44:09 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 20:44:09 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:44:09 | INFO | Execution time for run_bronze_step in 0.33 seconds
+2026-06-29 20:44:09 | INFO | Started run_bronze_step
+2026-06-29 20:44:09 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 20:44:09 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 20:44:09 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 20:44:09 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:44:09 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-29 20:44:09 | INFO | Started run_bronze_step
+2026-06-29 20:44:09 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 20:44:10 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 20:44:10 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:44:10 | INFO | Execution time for run_bronze_step in 0.34 seconds
+2026-06-29 20:44:10 | WARNING | Schema Validation Failed: MISSING_COLUMNS | Table: users | Details: {'passed': False, 'rule': 'MISSING_COLUMNS', 'table': 'users', 'missing_columns': ['Person_id']}
+2026-06-29 20:44:10 | WARNING | Schema Validation Failed: EXTRA_COLUMNS | Table: users | Details: {'passed': False, 'rule': 'EXTRA_COLUMNS', 'table': 'users', 'extra_columns': ['Person']}
+2026-06-29 20:44:10 | ERROR | Schema validation failed. Pipeline stopped.
+2026-06-29 20:44:10 | INFO | Finished 'main'
+2026-06-29 20:44:10 | INFO | Execution time for main in 1.38 seconds
+2026-06-29 20:45:38 | INFO | Started main
+2026-06-29 20:45:39 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 20:45:39 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 20:45:39 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 20:45:39 | INFO | Started run_bronze_step
+2026-06-29 20:45:39 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 20:45:39 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 20:45:39 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 20:45:39 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:45:39 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-29 20:45:39 | INFO | Started run_bronze_step
+2026-06-29 20:45:39 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 20:45:39 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 20:45:39 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 20:45:39 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:45:39 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-29 20:45:39 | INFO | Started run_bronze_step
+2026-06-29 20:45:39 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 20:45:39 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 20:45:39 | INFO | Finished 'run_bronze_step'
+2026-06-29 20:45:39 | INFO | Execution time for run_bronze_step in 0.35 seconds
+2026-06-29 20:45:39 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 20:45:39 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 20:45:39 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-29 20:45:39 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-29 20:45:39 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-29 20:45:39 | INFO | Finished 'main'
+2026-06-29 20:45:39 | INFO | Execution time for main in 1.25 seconds
+2026-06-29 21:08:50 | INFO | Started main
+2026-06-29 21:08:51 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 21:08:51 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 21:08:51 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 21:08:51 | INFO | Started run_bronze_step
+2026-06-29 21:08:51 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 21:08:51 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 21:08:51 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 21:08:51 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:08:51 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 21:08:51 | INFO | Started run_bronze_step
+2026-06-29 21:08:51 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 21:08:51 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 21:08:51 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 21:08:51 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:08:51 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 21:08:51 | INFO | Started run_bronze_step
+2026-06-29 21:08:51 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 21:08:52 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 21:08:52 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:08:52 | INFO | Execution time for run_bronze_step in 0.36 seconds
+2026-06-29 21:08:52 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 21:08:52 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 21:08:52 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-29 21:08:52 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-29 21:08:52 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-29 21:08:52 | INFO | Finished 'main'
+2026-06-29 21:08:52 | INFO | Execution time for main in 1.52 seconds
+2026-06-29 21:35:50 | INFO | Started main
+2026-06-29 21:35:50 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 21:35:50 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 21:35:50 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 21:35:50 | INFO | Started run_bronze_step
+2026-06-29 21:35:50 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 21:35:51 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 21:35:51 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 21:35:51 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:35:51 | INFO | Execution time for run_bronze_step in 0.31 seconds
+2026-06-29 21:35:51 | INFO | Started run_bronze_step
+2026-06-29 21:35:51 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 21:35:51 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 21:35:51 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 21:35:51 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:35:51 | INFO | Execution time for run_bronze_step in 0.31 seconds
+2026-06-29 21:35:51 | INFO | Started run_bronze_step
+2026-06-29 21:35:51 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 21:35:51 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 21:35:51 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:35:51 | INFO | Execution time for run_bronze_step in 0.39 seconds
+2026-06-29 21:35:52 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 21:35:52 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 21:35:52 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-29 21:35:52 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-29 21:35:52 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-29 21:35:52 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-29 21:35:52 | INFO | Finished 'main'
+2026-06-29 21:35:52 | INFO | Execution time for main in 1.76 seconds
+2026-06-29 21:36:15 | INFO | Started main
+2026-06-29 21:36:15 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 21:36:15 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 21:36:16 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 21:36:16 | INFO | Started run_bronze_step
+2026-06-29 21:36:16 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 21:36:16 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 21:36:16 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 21:36:16 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:36:16 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 21:36:16 | INFO | Started run_bronze_step
+2026-06-29 21:36:16 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 21:36:16 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 21:36:16 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 21:36:16 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:36:16 | INFO | Execution time for run_bronze_step in 0.34 seconds
+2026-06-29 21:36:16 | INFO | Started run_bronze_step
+2026-06-29 21:36:16 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 21:36:17 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 21:36:17 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:36:17 | INFO | Execution time for run_bronze_step in 0.52 seconds
+2026-06-29 21:36:17 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 21:36:17 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 21:36:17 | WARNING | Schema Validation Failed: COLUMN_TYPES | Table: users | Details: {'passed': False, 'rule': 'COLUMN_TYPES', 'table': 'users', 'mismatched_columns': [{'column': 'Birth Year', 'expected_type': 'integer', 'actual_type': 'text'}]}
+2026-06-29 21:36:17 | ERROR | Schema validation failed. Pipeline stopped.
+2026-06-29 21:36:17 | INFO | Finished 'main'
+2026-06-29 21:36:17 | INFO | Execution time for main in 1.61 seconds
+2026-06-29 21:36:56 | INFO | Started main
+2026-06-29 21:36:57 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-29 21:36:57 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-29 21:36:57 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-29 21:36:57 | INFO | Started run_bronze_step
+2026-06-29 21:36:57 | INFO | Executing Bronze step: Bronze Users
+2026-06-29 21:36:57 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-29 21:36:57 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-29 21:36:57 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:36:57 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 21:36:57 | INFO | Started run_bronze_step
+2026-06-29 21:36:57 | INFO | Executing Bronze step: Bronze Cards
+2026-06-29 21:36:57 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-29 21:36:57 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-29 21:36:57 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:36:57 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-29 21:36:57 | INFO | Started run_bronze_step
+2026-06-29 21:36:57 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-29 21:36:58 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-29 21:36:58 | INFO | Finished 'run_bronze_step'
+2026-06-29 21:36:58 | INFO | Execution time for run_bronze_step in 0.45 seconds
+2026-06-29 21:36:58 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-29 21:36:58 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-29 21:36:58 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-29 21:36:58 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-29 21:36:58 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-29 21:36:58 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-29 21:36:58 | INFO | Finished 'main'
+2026-06-29 21:36:58 | INFO | Execution time for main in 1.38 seconds
+2026-06-30 11:30:53 | INFO | Started main
+2026-06-30 11:30:53 | WARNING | File Validation Failed: FILE_EXISTS | File: users.csv
+2026-06-30 11:30:53 | ERROR | File validation failed. Pipeline stopped.
+2026-06-30 11:30:53 | INFO | Finished 'main'
+2026-06-30 11:30:53 | INFO | Execution time for main in 0.39 seconds
+2026-06-30 11:31:25 | INFO | Started main
+2026-06-30 11:31:26 | WARNING | File Validation Failed: FILE_EXISTS | File: users.csv
+2026-06-30 11:31:26 | ERROR | File validation failed. Pipeline stopped.
+2026-06-30 11:31:26 | INFO | Finished 'main'
+2026-06-30 11:31:26 | INFO | Execution time for main in 0.15 seconds
+2026-06-30 11:34:38 | INFO | Started main
+2026-06-30 11:34:38 | WARNING | File Validation Failed: FILE_EXISTS | File: users.csv
+2026-06-30 11:34:38 | ERROR | File validation failed. Pipeline stopped.
+2026-06-30 11:34:38 | INFO | Finished 'main'
+2026-06-30 11:34:38 | INFO | Execution time for main in 0.15 seconds
+2026-06-30 11:37:59 | INFO | Started main
+2026-06-30 11:38:00 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 11:38:00 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 11:38:00 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 11:38:00 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 11:38:00 | INFO | Started run_bronze_step
+2026-06-30 11:38:00 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 11:38:00 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 11:38:00 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 11:38:00 | INFO | Finished 'run_bronze_step'
+2026-06-30 11:38:00 | INFO | Execution time for run_bronze_step in 0.20 seconds
+2026-06-30 11:38:00 | INFO | Started run_bronze_step
+2026-06-30 11:38:00 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 11:38:00 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 11:38:00 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 11:38:00 | INFO | Finished 'run_bronze_step'
+2026-06-30 11:38:00 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-30 11:38:00 | INFO | Started run_bronze_step
+2026-06-30 11:38:00 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 11:38:01 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 11:38:01 | INFO | Finished 'run_bronze_step'
+2026-06-30 11:38:01 | INFO | Execution time for run_bronze_step in 0.47 seconds
+2026-06-30 11:38:01 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 11:38:01 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 11:38:01 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 11:38:01 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 11:38:01 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 11:38:01 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 11:38:01 | INFO | Finished 'main'
+2026-06-30 11:38:01 | INFO | Execution time for main in 1.48 seconds
+2026-06-30 11:38:24 | INFO | Started main
+2026-06-30 11:38:24 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 11:38:25 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 11:38:25 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 11:38:25 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 11:38:25 | INFO | Started run_bronze_step
+2026-06-30 11:38:25 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 11:38:25 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 11:38:25 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 11:38:25 | INFO | Finished 'run_bronze_step'
+2026-06-30 11:38:25 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-30 11:38:25 | INFO | Started run_bronze_step
+2026-06-30 11:38:25 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 11:38:25 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 11:38:25 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 11:38:25 | INFO | Finished 'run_bronze_step'
+2026-06-30 11:38:25 | INFO | Execution time for run_bronze_step in 0.32 seconds
+2026-06-30 11:38:25 | INFO | Started run_bronze_step
+2026-06-30 11:38:25 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 11:38:26 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 11:38:26 | INFO | Finished 'run_bronze_step'
+2026-06-30 11:38:26 | INFO | Execution time for run_bronze_step in 0.49 seconds
+2026-06-30 11:38:26 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 11:38:26 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 11:38:26 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 11:38:26 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 11:38:26 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 11:38:26 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 11:38:26 | INFO | Finished 'main'
+2026-06-30 11:38:26 | INFO | Execution time for main in 1.78 seconds
+2026-06-30 11:40:28 | INFO | Started main
+2026-06-30 11:40:28 | WARNING | File Validation Failed: FILE_EXISTS | File: *users.csv
+2026-06-30 11:40:28 | ERROR | File validation failed. Pipeline stopped.
+2026-06-30 11:40:28 | INFO | Finished 'main'
+2026-06-30 11:40:28 | INFO | Execution time for main in 0.16 seconds
+2026-06-30 12:11:27 | INFO | Started main
+2026-06-30 12:11:28 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 12:11:28 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 12:11:28 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 12:11:28 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 12:11:28 | INFO | Started run_bronze_step
+2026-06-30 12:11:28 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 12:11:28 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 12:11:28 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 12:11:28 | INFO | Finished 'run_bronze_step'
+2026-06-30 12:11:28 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-30 12:11:28 | INFO | Started run_bronze_step
+2026-06-30 12:11:28 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 12:11:28 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 12:11:28 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 12:11:28 | INFO | Finished 'run_bronze_step'
+2026-06-30 12:11:28 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-30 12:11:28 | INFO | Started run_bronze_step
+2026-06-30 12:11:28 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 12:11:29 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 12:11:29 | INFO | Finished 'run_bronze_step'
+2026-06-30 12:11:29 | INFO | Execution time for run_bronze_step in 0.48 seconds
+2026-06-30 12:11:29 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 12:11:29 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 12:11:29 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 12:11:29 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 12:11:29 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 12:11:29 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 12:11:29 | INFO | Finished 'main'
+2026-06-30 12:11:29 | INFO | Execution time for main in 1.70 seconds
+2026-06-30 13:14:21 | INFO | Started main
+2026-06-30 13:14:22 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 13:14:22 | INFO | File Validation Passed: EMPTY_FILE | File: sd254_users.csv
+2026-06-30 13:14:22 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 13:14:22 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 13:14:22 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 13:14:22 | INFO | Started run_bronze_step
+2026-06-30 13:14:22 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 13:14:22 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 13:14:22 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 13:14:22 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:14:22 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-30 13:14:22 | INFO | Started run_bronze_step
+2026-06-30 13:14:22 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 13:14:22 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 13:14:22 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 13:14:22 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:14:22 | INFO | Execution time for run_bronze_step in 0.30 seconds
+2026-06-30 13:14:22 | INFO | Started run_bronze_step
+2026-06-30 13:14:22 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 13:14:23 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 13:14:23 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:14:23 | INFO | Execution time for run_bronze_step in 0.38 seconds
+2026-06-30 13:14:23 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 13:14:23 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 13:14:23 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 13:14:23 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 13:14:23 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 13:14:23 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 13:14:23 | INFO | Finished 'main'
+2026-06-30 13:14:23 | INFO | Execution time for main in 1.37 seconds
+2026-06-30 13:14:46 | INFO | Started main
+2026-06-30 13:14:46 | WARNING | File Validation Failed: FILE_EXISTS | File: None
+2026-06-30 13:14:46 | ERROR | File validation failed. Pipeline stopped.
+2026-06-30 13:14:46 | INFO | Finished 'main'
+2026-06-30 13:14:46 | INFO | Execution time for main in 0.26 seconds
+2026-06-30 13:15:11 | INFO | Started main
+2026-06-30 13:15:11 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 13:15:11 | INFO | File Validation Passed: EMPTY_FILE | File: sd254_users.csv
+2026-06-30 13:15:11 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 13:15:11 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 13:15:11 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 13:15:11 | INFO | Started run_bronze_step
+2026-06-30 13:15:11 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 13:15:11 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 13:15:11 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 13:15:11 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:15:11 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-30 13:15:11 | INFO | Started run_bronze_step
+2026-06-30 13:15:11 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 13:15:11 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 13:15:12 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 13:15:12 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:15:12 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-30 13:15:12 | INFO | Started run_bronze_step
+2026-06-30 13:15:12 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 13:15:12 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 13:15:12 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:15:12 | INFO | Execution time for run_bronze_step in 0.62 seconds
+2026-06-30 13:15:12 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 13:15:12 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 13:15:12 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 13:15:12 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 13:15:12 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 13:15:12 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 13:15:12 | INFO | Finished 'main'
+2026-06-30 13:15:12 | INFO | Execution time for main in 1.51 seconds
+2026-06-30 13:33:37 | INFO | Started main
+2026-06-30 13:33:37 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 13:33:37 | INFO | File Validation Passed: EMPTY_FILE | File: sd254_users.csv
+2026-06-30 13:33:37 | INFO | File Validation Passed: FILE_EXTENSION | File: sd254_users.csv
+2026-06-30 13:33:37 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 13:33:37 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 13:33:37 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 13:33:37 | INFO | Started run_bronze_step
+2026-06-30 13:33:37 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 13:33:37 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 13:33:37 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 13:33:37 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:33:37 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-30 13:33:37 | INFO | Started run_bronze_step
+2026-06-30 13:33:37 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 13:33:37 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 13:33:37 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 13:33:37 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:33:37 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-30 13:33:37 | INFO | Started run_bronze_step
+2026-06-30 13:33:37 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 13:33:38 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 13:33:38 | INFO | Finished 'run_bronze_step'
+2026-06-30 13:33:38 | INFO | Execution time for run_bronze_step in 0.47 seconds
+2026-06-30 13:33:38 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 13:33:38 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 13:33:38 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 13:33:38 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 13:33:38 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 13:33:38 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 13:33:38 | INFO | Finished 'main'
+2026-06-30 13:33:38 | INFO | Execution time for main in 1.44 seconds
+2026-06-30 17:31:09 | INFO | Started main
+2026-06-30 17:31:10 | INFO | File Validation Passed: FILE_EXISTS | File: sd254_users.csv
+2026-06-30 17:31:10 | INFO | File Validation Passed: EMPTY_FILE | File: sd254_users.csv
+2026-06-30 17:31:10 | INFO | File Validation Passed: FILE_EXTENSION | File: sd254_users.csv
+2026-06-30 17:31:10 | INFO | File Validation Passed: FILE_ENCODING | File: sd254_users.csv
+2026-06-30 17:31:10 | INFO | Executing SQL script: 001_create_schema.sql
+2026-06-30 17:31:10 | INFO | Executing SQL script: 002_create_audit.sql
+2026-06-30 17:31:10 | INFO | Executing SQL script: 003_create_bronze_tables.sql
+2026-06-30 17:31:10 | INFO | Started run_bronze_step
+2026-06-30 17:31:10 | INFO | Executing Bronze step: Bronze Users
+2026-06-30 17:31:10 | WARNING | sd254_users.csv File already loaded. Skipping.
+2026-06-30 17:31:10 | INFO | Step 'Bronze Users' completed successfully (2000 rows)
+2026-06-30 17:31:10 | INFO | Finished 'run_bronze_step'
+2026-06-30 17:31:10 | INFO | Execution time for run_bronze_step in 0.19 seconds
+2026-06-30 17:31:10 | INFO | Started run_bronze_step
+2026-06-30 17:31:10 | INFO | Executing Bronze step: Bronze Cards
+2026-06-30 17:31:10 | WARNING | sd254_cards.csv File already loaded. Skipping.
+2026-06-30 17:31:11 | INFO | Step 'Bronze Cards' completed successfully (6146 rows)
+2026-06-30 17:31:11 | INFO | Finished 'run_bronze_step'
+2026-06-30 17:31:11 | INFO | Execution time for run_bronze_step in 0.18 seconds
+2026-06-30 17:31:11 | INFO | Started run_bronze_step
+2026-06-30 17:31:11 | INFO | Executing Bronze step: Bronze Transactions
+2026-06-30 17:31:11 | INFO | Step 'Bronze Transactions' completed successfully (19963 rows)
+2026-06-30 17:31:11 | INFO | Finished 'run_bronze_step'
+2026-06-30 17:31:11 | INFO | Execution time for run_bronze_step in 0.37 seconds
+2026-06-30 17:31:11 | INFO | Schema Validation Passed: MISSING_COLUMNS | Table: users
+2026-06-30 17:31:11 | INFO | Schema Validation Passed: EXTRA_COLUMNS | Table: users
+2026-06-30 17:31:11 | INFO | Schema Validation Passed: COLUMN_TYPES | Table: users
+2026-06-30 17:31:11 | INFO | Validation Passed: NULL_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 0
+2026-06-30 17:31:11 | WARNING | Validation Failed: DUPLICATE_CHECK | Table: bronze.users | Column: Person | Invalid Rows: 7
+2026-06-30 17:31:11 | ERROR | Data validation failed. Pipeline stopped.
+2026-06-30 17:31:11 | INFO | Finished 'main'
+2026-06-30 17:31:11 | INFO | Execution time for main in 1.54 seconds
