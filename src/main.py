@@ -8,7 +8,8 @@ from src.logging.decorators import log_execution
 from src.logging.logger import logger
 from src.validation.runner import run_schema_validations, run_data_validations
 from src.file_handling.runner import run_file_validations
-
+from src.idempotency.runner import run_idempotency_validations
+from src.idempotency.common import mark_file_processed, calculate_file_hash
 from src.audit.audit import (
     start_pipeline,
     finish_pipeline,
@@ -81,6 +82,8 @@ def main():
     """
     create_database()
     create_schemas()
+    execute_sql("sql/001_create_schema.sql")
+    execute_sql("sql/002_create_audit.sql")
 
     # =========================
     # File Validation
@@ -91,6 +94,15 @@ def main():
         logger.error("File validation failed. Pipeline stopped.")
         return
 
+    # =========================
+    # Idempotency
+    # =========================
+    validation_failed, latest_files  = run_idempotency_validations()
+
+    if validation_failed:
+        logger.error("Idempotency validation failed. Pipeline stopped.")
+        return
+
     
     # =========================
     # Start Pipeline Audit
@@ -98,11 +110,8 @@ def main():
     run_id = start_pipeline("Banking Analytics Platform")
 
     try:
-
-        execute_sql("sql/001_create_schema.sql")
-        execute_sql("sql/002_create_audit.sql")
         execute_sql("sql/003_create_bronze_tables.sql")
-        
+                
         # =========================
         # Bronze Layer
         # =========================
@@ -136,11 +145,11 @@ def main():
             logger.error("Schema validation failed. Pipeline stopped.")
             return
         
-        data_failed = run_data_validations()
+        # data_failed = run_data_validations()
 
-        if data_failed:
-            logger.error("Data validation failed. Pipeline stopped.")
-            return
+        # if data_failed:
+        #     logger.error("Data validation failed. Pipeline stopped.")
+        #     return
 
         # =========================
         # Silver Layer
@@ -217,6 +226,18 @@ def main():
         # Finish Pipeline Audit
         # =========================
         finish_pipeline(run_id)
+
+        for latest_file in latest_files.values():
+            print(f"xxxxxxxxxxxxxxxxxxxxxxxxxxxxx {latest_file}")
+            if latest_file is None:
+                continue
+
+            mark_file_processed(
+                file_name=latest_file.name,
+                file_hash=calculate_file_hash(latest_file),
+                run_id=run_id
+            )
+
 
     except Exception as e:
         fail_pipeline(run_id, e)

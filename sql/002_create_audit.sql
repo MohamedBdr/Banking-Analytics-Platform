@@ -33,16 +33,18 @@ CREATE TABLE IF NOT EXISTS audit.etl_steps (
 );
 
 --------------------------------------------
-CREATE TABLE audit.processed_files (
+CREATE TABLE IF NOT EXISTS audit.processed_files (
 
     id SERIAL PRIMARY KEY,
 
     file_name VARCHAR(255) NOT NULL UNIQUE,
-
+    
     run_id INTEGER NOT NULL
         REFERENCES audit.etl_runs(run_id),
 
-    processed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    processed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+    file_hash VARCHAR(64) NOT NULL UNIQUE
 );
 
 ------------------------------------------------------

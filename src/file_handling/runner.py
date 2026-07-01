@@ -23,7 +23,7 @@ def run_file_validations():
         if result["passed"]:
 
             logger.info(
-                f"File Validation Passed: {result['rule']} | "
+                f"File Handling Validation Passed: {result['rule']} | "
                 f"File: {result['file']}"
             )
 
@@ -32,7 +32,7 @@ def run_file_validations():
             validation_failed = True
 
             logger.warning(
-                f"File Validation Failed: {result['rule']} | "
+                f"File Handling Validation Failed: {result['rule']} | "
                 f"File: {result['file']}"
             )
 
